@@ -9,7 +9,7 @@ const PASSWORD = process.env.PASSWORD;
 export const db = new Client({
 	host: "localhost",
 	port: 5432,
-	user: DB_USER,
+	user: USER,
 	password: PASSWORD,
 	database: "USER_CRUD",
 });
