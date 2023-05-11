@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import userRoutes from "./routes/routes.js";
 
 const PORT = 8800;
 const app = express();
@@ -7,9 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-	res.send("HOME");
-});
+app.use("/", userRoutes);
 
 app.listen(PORT);
 console.log(`listening on port: ${PORT}`);
