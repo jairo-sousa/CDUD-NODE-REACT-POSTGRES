@@ -8,14 +8,15 @@ type TableThProps = {
 	onlyWeb?: boolean;
 };
 export function TableTh({ label, children, onlyWeb }: TableThProps) {
-	const [isSmallerThan500] = useMediaQuery("(min-width: 50rem)");
+	const [isSmallerThan500] = useMediaQuery("(max-width: 50rem)");
 
 	return (
 		<Th
 			textAlign="start"
 			borderBottom="inset"
 			pb="0.5rem"
-			display={`${isSmallerThan500 && onlyWeb && "none"}`}
+			display={`${isSmallerThan500 && onlyWeb ? "none" : "flex"}`}
+			flex="1"
 		>
 			{label || children}
 		</Th>
