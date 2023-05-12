@@ -11,13 +11,16 @@ export function Form({ onEdit }: any) {
 			ref={formRef}
 			p="2rem"
 			bg="#fff"
-			align="center"
+			align="end"
 			flexWrap="wrap"
 			gap="1rem"
 			borderRadius="0.5rem"
 			boxShadow="0 0 0.5rem #ccc"
 		>
 			<Fieldset label="Name" />
+			<Fieldset label="E-mail" type="email" />
+			<Fieldset label="Phone" />
+			<Fieldset label="Date" type="date" />
 		</Flex>
 	);
 }
