@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { useRef } from "react";
 import { Fieldset } from "./FieldSet";
+import { Btn } from "./Btn";
 
 export function Form({ onEdit }: any) {
 	const formRef = useRef<HTMLFormElement>(null);
@@ -21,6 +22,8 @@ export function Form({ onEdit }: any) {
 			<Fieldset label="E-mail" type="email" />
 			<Fieldset label="Phone" />
 			<Fieldset label="Date" type="date" />
+
+			<Btn label="SAVE" />
 		</Flex>
 	);
 }
