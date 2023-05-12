@@ -17,7 +17,7 @@ export function Form({ onEdit }: any) {
 			borderRadius="0.5rem"
 			boxShadow="0 0 0.5rem #ccc"
 		>
-			<Fieldset />
+			<Fieldset label="Name" />
 		</Flex>
 	);
 }
