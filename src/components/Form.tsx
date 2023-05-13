@@ -10,9 +10,12 @@ export function Form({ onEdit }: any) {
 		<Flex
 			as="form"
 			ref={formRef}
+			w="100%"
+			maxW="80rem"
 			p="2rem"
 			bg="#fff"
 			align="end"
+			justify="space-evenly"
 			flexWrap="wrap"
 			gap="1rem"
 			borderRadius="0.5rem"
