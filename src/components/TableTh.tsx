@@ -6,8 +6,9 @@ type TableThProps = {
 	label?: string;
 	children?: React.ReactNode;
 	onlyWeb?: boolean;
+	w?: string;
 };
-export function TableTh({ label, children, onlyWeb }: TableThProps) {
+export function TableTh({ label, children, onlyWeb, w }: TableThProps) {
 	const [isSmallerThan500] = useMediaQuery("(max-width: 50rem)");
 
 	return (
@@ -16,7 +17,8 @@ export function TableTh({ label, children, onlyWeb }: TableThProps) {
 			borderBottom="inset"
 			pb="0.5rem"
 			display={`${isSmallerThan500 && onlyWeb ? "none" : "flex"}`}
-			flex="1"
+			flex={w ? "" : "1"}
+			w={w ? w : "auto"}
 		>
 			{label || children}
 		</Th>
