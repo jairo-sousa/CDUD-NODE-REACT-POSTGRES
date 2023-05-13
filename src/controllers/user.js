@@ -8,6 +8,6 @@ export const getUsers = (_, res) => {
 	db.query(query, (err, data) => {
 		if (err) return res.json(err);
 
-		return res.status(200).json(data);
+		return res.status(200).json(data.rows);
 	});
 };
