@@ -2,11 +2,15 @@ import { Table, Thead, Tr } from "@chakra-ui/react";
 import { TableTh } from "./TableTh";
 import { TableBody } from "./TableBody";
 import { User } from "../types/User";
+import { SetUsers } from "../types/SetUsers";
+import { SetOnEdit } from "../types/SetOnEdit";
 
 type DataTableProps = {
 	users?: User[];
+	setUsers: SetUsers;
+	setOnEdit: SetOnEdit;
 };
-export function DataTable({ users }: DataTableProps) {
+export function DataTable({ users, setUsers, setOnEdit }: DataTableProps) {
 	return (
 		<Table
 			w="100%"
@@ -27,7 +31,7 @@ export function DataTable({ users }: DataTableProps) {
 					<TableTh w="5%" />
 				</Tr>
 			</Thead>
-			<TableBody users={users} />
+			<TableBody users={users} setUsers={setUsers} setOnEdit={setOnEdit} />
 		</Table>
 	);
 }
