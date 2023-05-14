@@ -48,3 +48,13 @@ export const updateUser = (req, res) => {
 		return res.status(200).json("User updated successfully");
 	});
 };
+
+export const deleteUser = (req, res) => {
+	const query = "DELETE FROM users WHERE id = ?";
+
+	db.query(query, [req.params.id], (err) => {
+		if (err) return res.json(err);
+
+		return res.status(200).json("User deleted successfully");
+	});
+};
