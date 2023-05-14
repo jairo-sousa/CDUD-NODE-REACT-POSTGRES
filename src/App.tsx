@@ -9,7 +9,7 @@ import axios from "axios";
 
 export function App() {
 	const [users, setUsers] = useState<User[]>();
-	const [onEdit, setOnEdit] = useState(null);
+	const [onEdit, setOnEdit] = useState<User>();
 
 	const getUsers = async () => {
 		try {
@@ -36,8 +36,8 @@ export function App() {
 			<Heading as="h1" fontSize="3.2rem">
 				USERS
 			</Heading>
-			<Form />
-			<DataTable users={users} />
+			<Form onEdit={onEdit} setOnEdit={setOnEdit} getUsers={getUsers} />
+			<DataTable users={users} setUsers={setUsers} setOnEdit={setOnEdit} />
 			<ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
 		</Flex>
 	);
