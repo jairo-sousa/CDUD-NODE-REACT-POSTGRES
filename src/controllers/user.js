@@ -13,18 +13,13 @@ export const getUsers = (_, res) => {
 };
 
 export const addUser = (req, res) => {
-	const query =
-		"INSERT INTO users VALUES ('id','name','email','phone','birthdate') VALUES(?)";
+	const query = `INSERT INTO users VALUES 
+		(DEFAULT,'${req.body.name}',
+		'${req.body.email}',
+		'${req.body.phone}',
+		'${req.body.birthdate}')`;
 
-	const values = [
-		"DEFAULT",
-		req.body.name,
-		req.body.email,
-		req.body.phone,
-		req.body.birthdate,
-	];
-
-	db.query(query, [values], (err) => {
+	db.query(query, (err) => {
 		if (err) return res.json(err);
 
 		return res.status(200).json("User created successfully");
@@ -32,17 +27,14 @@ export const addUser = (req, res) => {
 };
 
 export const updateUser = (req, res) => {
-	const query =
-		"UPDATE users SET name = ?, email = ?, phone = ?, birthdate = ?WHERE id = ?";
+	const query = `UPDATE users 
+		SET name = '${req.body.name}',
+		email = '${req.body.email}',
+		phone = '${req.body.phone}',
+		birthdate = '${req.body.birthdate}'
+		WHERE id = ${req.params.id}`;
 
-	const values = [
-		req.body.name,
-		req.body.email,
-		req.body.phone,
-		req.body.birthdate,
-	];
-
-	db.query(query, [...values, req.params.id], (err) => {
+	db.query(query, (err) => {
 		if (err) return res.json(err);
 
 		return res.status(200).json("User updated successfully");
@@ -50,9 +42,9 @@ export const updateUser = (req, res) => {
 };
 
 export const deleteUser = (req, res) => {
-	const query = "DELETE FROM users WHERE id = ?";
+	const query = `DELETE FROM users WHERE id = ${req.params.id}`;
 
-	db.query(query, [req.params.id], (err) => {
+	db.query(query, (err) => {
 		if (err) return res.json(err);
 
 		return res.status(200).json("User deleted successfully");
