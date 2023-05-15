@@ -58,6 +58,16 @@ export function Form({ onEdit, setOnEdit, getUsers }: FormProps) {
 				})
 				.then(({ data }) => toast.success(data))
 				.catch(({ data }) => toast.error(data));
+		} else {
+			await axios
+				.post("http://localhost:8800", {
+					name: user.name.value,
+					email: user.email.value,
+					phone: user.phone.value,
+					birthdate: user.birthdate.value,
+				})
+				.then(({ data }) => toast.success(data))
+				.catch(({ data }) => toast.error(data));
 		}
 
 		user.name.value = "";
@@ -87,7 +97,7 @@ export function Form({ onEdit, setOnEdit, getUsers }: FormProps) {
 			<Fieldset innerRef={nameRef} label="Name" />
 			<Fieldset innerRef={emailRef} label="E-mail" type="email" />
 			<Fieldset innerRef={phoneRef} label="Phone" />
-			<Fieldset innerRef={birthdateRef} label="Birthdate" />
+			<Fieldset innerRef={birthdateRef} label="Birthdate" type="date" />
 
 			<Btn label="SAVE" />
 		</Flex>
